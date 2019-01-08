@@ -1,0 +1,14 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "globals": {
+    "document": true
+  },
+  "rules": {
+    "react/require-default-props": "off",
+    "linebreak-style": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/destructuring-assignment": "off",
+    "no-console": "off",
+  }
+}
