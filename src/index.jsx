@@ -1,6 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
-import App from './components/App';
+import configureStore from '@configureStore';
 
-render(<App />, document.querySelector('#root'));
+import App from './client/App';
+
+const store = configureStore(window.initialState);
+
+const rootElement = document.querySelector('#root');
+
+const renderApp = (Component) => {
+  render(
+    <Provider store={store}>
+      <Component />
+    </Provider>,
+    rootElement,
+  );
+};
+
+renderApp(App);
