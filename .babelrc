@@ -14,7 +14,8 @@
       "alias": {
         "@configureStore": "./src/shared/redux/configureStore.js",
         "@webpack": "./webpack.config.babel.js",
-        "@utils": "./src/shared/utils"
+        "@utils": "./src/shared/utils",
+        "@components": "./src/client/components"
       }
     }]
   ]
