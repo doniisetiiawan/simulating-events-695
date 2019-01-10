@@ -2,5 +2,20 @@
   "presets": [
     "@babel/preset-env",
     "@babel/preset-react"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    }
+  },
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "@configureStore": "./src/shared/redux/configureStore.js",
+        "@webpack": "./webpack.config.babel.js",
+        "@utils": "./src/shared/utils"
+      }
+    }]
   ]
 }
