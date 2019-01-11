@@ -6,9 +6,10 @@ import { hot } from 'react-hot-loader';
 
 import configureStore from '@configureStore';
 
+import { isBrowser } from '@utils/frontend';
 import App from './App';
 
-const store = configureStore(window.initialState);
+const store = isBrowser() ? configureStore(window.initialState) : {};
 
 const rootElement = document.querySelector('#root');
 

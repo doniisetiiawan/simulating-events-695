@@ -3,6 +3,8 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 
+import { isBrowser } from '@utils/frontend';
+
 import configureStore from '@configureStore';
 
 import App from '../../client/App';
@@ -13,7 +15,7 @@ import initialState from './initialState';
 
 export default function serverRender() {
   return (req, res) => {
-    const store = configureStore(initialState(req));
+    const store = isBrowser() ? configureStore(initialState(req)) : {};
 
     const markup = ReactDOMServer.renderToString(
       <Provider store={store}>
