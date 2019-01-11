@@ -1,13 +1,19 @@
-const isProduction = process.env.NODE_ENV === 'production';
-const entry = [];
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
-if (!isProduction) {
-  entry.push(
-    'webpack-hot-middleware/client?reload=true',
-    './src/index.jsx',
-  );
-} else {
-  entry.push('./src/index.jsx');
-}
+export default (type) => {
+  if (type === 'server') {
+    return './render/serverRender.js';
+  }
 
-export default entry;
+  const entry = [];
+
+  if (isDevelopment) {
+    entry.push(
+      'webpack-hot-middleware/client?reload=true',
+    );
+  }
+
+  entry.push('./index.jsx');
+
+  return entry;
+};

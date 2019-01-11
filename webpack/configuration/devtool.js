@@ -1,2 +1,2 @@
-const isProduction = process.env.NODE_ENV === 'production';
-export default !isProduction ? 'cheap-module-source-map' : 'eval';
+const isDevelopment = process.env.NODE_ENV !== 'production';
+export default isDevelopment ? 'cheap-module-source-map' : 'eval';

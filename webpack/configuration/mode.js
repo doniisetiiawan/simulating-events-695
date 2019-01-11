@@ -1,3 +1,3 @@
-const isProduction = process.env.NODE_ENV === 'production';
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
-export default !isProduction ? 'development' : 'production';
+export default isDevelopment ? 'development' : 'production';
