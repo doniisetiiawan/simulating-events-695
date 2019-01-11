@@ -1,17 +1,32 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
+import {
+  BrowserRouter, Route, StaticRouter, Switch,
+} from 'react-router-dom';
 
 import About from '@components/About';
 import Home from '@components/Home';
 
-const App = () => (
-  <BrowserRouter>
+export default ({ server, location, context = {} }) => {
+  const routes = (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
     </Switch>
-  </BrowserRouter>
-);
+  );
 
-export default hot(module)(App);
+  let router = (
+    <BrowserRouter>
+      {routes}
+    </BrowserRouter>
+  );
+
+  if (server) {
+    router = (
+      <StaticRouter location={location} context={context}>
+        {routes}
+      </StaticRouter>
+    );
+  }
+
+  return router;
+};
