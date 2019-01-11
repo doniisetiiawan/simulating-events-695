@@ -13,7 +13,7 @@
       "root": ["./"],
       "alias": {
         "@configureStore": "./src/shared/redux/configureStore.js",
-        "@webpack": "./webpack.config.babel.js",
+        "@webpack": "./webpack.config.js",
         "@utils": "./src/shared/utils",
         "@components": "./src/client/components"
       }
