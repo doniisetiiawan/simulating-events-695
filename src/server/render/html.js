@@ -3,7 +3,11 @@ import serialize from 'serialize-javascript';
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default function html(options) {
-  const { title, initialState } = options;
+  const {
+    title = 'CodeJobs',
+    initialState = {},
+    markup = '',
+  } = options;
   let path = '/';
   let link = '';
 
@@ -21,13 +25,13 @@ export default function html(options) {
       ${link}
   </head>
   <body>
-  <div id="root"></div>
+  <div id="root">${markup}</div>
   
   <script>
     window.initialState = ${serialize(initialState)};
   </script>
-  <script src="${path}vendor.js"></script>
-  <script src="${path}main.js"></script>
+  <script src="${path}vendor.bundle.js"></script>
+  <script src="${path}main.bundle.js"></script>
   </body>
   </html>
   `;
