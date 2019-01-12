@@ -1,5 +1,5 @@
-/* eslint-disable comma-dangle */
-import React, { Component } from 'react';
+/* eslint-disable comma-dangle,no-shadow */
+import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader';
@@ -13,7 +13,7 @@ const store = isBrowser() ? configureStore(window.initialState) : {};
 
 const rootElement = document.querySelector('#root');
 
-const renderApp = () => {
+const renderApp = (Component) => {
   render(
     <Provider store={store}>
       <Component />
