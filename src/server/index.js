@@ -11,12 +11,16 @@ import webpackConfig from '@webpack';
 import { isMobile, isBot } from '@utils/device';
 import clientRender from './render/clientRender';
 
+import apiController from './controllers/api';
+
 const isProduction = process.env.NODE_ENV === 'production';
 
 const app = express();
 const port = 3000;
 
 const compiler = webpack(webpackConfig);
+
+app.use('/api', apiController);
 
 app.use(express.static(path.join(__dirname, '../../public')));
 
