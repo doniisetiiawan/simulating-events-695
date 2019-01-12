@@ -12,6 +12,9 @@
     "no-console": "off",
     "no-undef": "off",
     "global-require": "warn",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "react/forbid-prop-types": "off",
+    "react/no-array-index-key": "off"
   }
 }
