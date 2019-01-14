@@ -5,25 +5,38 @@
   ],
   "env": {
     "development": {
-      "plugins": ["react-hot-loader/babel"]
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
     }
   },
   "plugins": [
-    ["module-resolver", {
-      "root": ["./"],
-      "alias": {
-        "@baseActions": "./src/shared/redux/baseActions.js",
-        "@configuration": "./config",
-        "@about": "./src/client/about",
-        "@todo": "./src/client/todo",
-        "@home": "./src/client/home",
-        "@configureStore": "./src/shared/redux/configureStore.js",
-        "@reducers": "./src/shared/reducers",
-        "@webpack": "./webpack.config.js",
-        "@utils": "./src/shared/utils",
-        "@shared": "./src/shared",
-        "@layout": "./src/shared/components/layout/"
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./"
+        ],
+        "alias": {
+          "@baseActions": "./src/shared/redux/baseActions.js",
+          "@configuration": "./config",
+          "@about": "./src/client/about",
+          "@todo": "./src/client/todo",
+          "@home": "./src/client/home",
+          "@configureStore": "./src/shared/redux/configureStore.js",
+          "@reducers": "./src/shared/reducers",
+          "@webpack": "./webpack.config.js",
+          "@utils": "./src/shared/utils",
+          "@shared": "./src/shared",
+          "@layout": "./src/shared/components/layout/"
+        }
       }
-    }]
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
   ]
 }
